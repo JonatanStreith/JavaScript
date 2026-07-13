@@ -12,14 +12,26 @@ const produkter = [
 ];
 
 
+
+
+//Nivå 1- funktioner
 const onlyHW = (list) => list.filter(p => p.kategori == "Hårdvara");
-
 const loudProds = (list) => list.map(p => p.namn.toUpperCase());
-
 const getTotal = (list) => list.map(p => p.pris).reduce(getSum);
-
 const getSum = (total, num) => total + num;
 
 console.log(onlyHW(produkter));
 console.log(loudProds(produkter));
-console.log(getTotal(produkter));
+console.log("Totalt: " + getTotal(produkter) + " kr");
+
+//Nivå 2:
+const theList = document.querySelector('#produkt-lista');
+document.querySelector('#btn-visa').addEventListener('click', populateList);
+
+function populateList() {
+    produkter.forEach(p => {
+        let li = document.createElement('li');
+        li.textContent = p.namn + ", " + p.pris + " kr";
+        theList.appendChild(li);
+    })
+}
