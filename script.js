@@ -11,27 +11,36 @@ const produkter = [
 { id: 10, namn: "Blåljusglasögon", pris: 349, kategori: "Tillbehör" }
 ];
 
-
-
-
 //Nivå 1- funktioner
 const onlyHW = (list) => list.filter(p => p.kategori == "Hårdvara");
 const loudProds = (list) => list.map(p => p.namn.toUpperCase());
 const getTotal = (list) => list.map(p => p.pris).reduce(getSum);
 const getSum = (total, num) => total + num;
 
+/*
 console.log(onlyHW(produkter));
 console.log(loudProds(produkter));
 console.log("Totalt: " + getTotal(produkter) + " kr");
+*/
 
-//Nivå 2:
+//Nivå 2-3:
 const theList = document.querySelector('#produkt-lista');
 document.querySelector('#btn-visa').addEventListener('click', populateList);
 
 function populateList() {
+    theList.replaceChildren();  //Nollställer listan innan den populeras
+
     produkter.forEach(p => {
         let li = document.createElement('li');
         li.textContent = p.namn + ", " + p.pris + " kr";
+        let btn = document.createElement('button');
+        btn.textContent = "Radera";
+        btn.addEventListener('click', deleteListElement);
+        li.appendChild(btn);
         theList.appendChild(li);
     })
+}
+
+function deleteListElement(e) {
+e.target.parentNode.remove();
 }
