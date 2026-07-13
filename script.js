@@ -35,12 +35,8 @@ function populateList() {
         li.textContent = p.namn + ", " + p.pris + " kr";
         let btn = document.createElement('button');
         btn.textContent = "Radera";
-        btn.addEventListener('click', deleteListElement);
+        btn.addEventListener('click', (e) => e.target.parentNode.remove());
         li.appendChild(btn);
         theList.appendChild(li);
     })
-}
-
-function deleteListElement(e) {
-e.target.parentNode.remove();
 }
