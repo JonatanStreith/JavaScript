@@ -154,17 +154,17 @@
 
             console.log(nyBil);
 
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(nyBil)
-        });
-        const data = await response.json();
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(nyBil)
+            });
+            const data = await response.json();
         
-        console.log("Kod:", response.status);
-        console.log("Data:", data);
+            console.log("Kod:", response.status);
+            console.log("Data:", data);
 
-        fetchCars();
+            fetchCars();
 
         };
 
@@ -199,8 +199,6 @@
                 color: document.querySelector('#color').value
             };
 
-            console.log(updCar);
-
             const response = await fetch(`${API_URL}/${car.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -208,28 +206,14 @@
             });
 
             console.log("Statuskod:", response.status);
-            
+
             fetchCars();
         };
-
-
-
-
-
-
-
 
         // Event listener för ladda-knappen
         loadBtn.addEventListener('click', fetchCars);
         submitBtn.addEventListener('click', addCar);
-
-        
-
-        
-
-
-        
-
+   
     </script>
 </body>
 </html>
