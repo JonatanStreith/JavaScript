@@ -170,7 +170,7 @@
 
 
         // ==========================================
-        // 🟢 Delete (POST) - Ta bort vald bil
+        // 🟢 Delete (DELETE) - Ta bort vald bil
         // ==========================================
         const deleteCar = async (carId) => {
             const response = await fetch(`${API_URL}/${carId}`, {
@@ -184,6 +184,33 @@
             fetchCars();
         };
 
+        // ==========================================
+        // 🟢 Update (PUT) - Uppdatera vald bil
+        // ==========================================
+        const prepareEdit = async (car) => {
+
+            console.log(car.id);
+
+            const updCar = {
+                id: car.id,
+                brand: document.querySelector('#brand').value,
+                model: document.querySelector('#model').value,
+                year: document.querySelector('#year').value,
+                color: document.querySelector('#color').value
+            };
+
+            console.log(updCar);
+
+            const response = await fetch(`${API_URL}/${car.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updCar)
+            });
+
+            console.log("Statuskod:", response.status);
+            
+            fetchCars();
+        };
 
 
 
@@ -191,7 +218,6 @@
 
 
 
-        
 
         // Event listener för ladda-knappen
         loadBtn.addEventListener('click', fetchCars);
