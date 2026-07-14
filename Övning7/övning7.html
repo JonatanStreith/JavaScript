@@ -142,12 +142,18 @@
         // ==========================================
         const addCar = async () => {
             console.log("--- Skickar POST ---");
+
+            event.preventDefault();
+
             const nyBil = {
-                brand: document.querySelector('#brand'),
-                model: document.querySelector('#model'),
-                year: document.querySelector('#year'),
-                color: document.querySelector('#color')
+                brand: document.querySelector('#brand').value,
+                model: document.querySelector('#model').value,
+                year: document.querySelector('#year').value,
+                color: document.querySelector('#color').value
             }
+
+            console.log(nyBil);
+
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -157,7 +163,28 @@
         
         console.log("Kod:", response.status);
         console.log("Data:", data);
+
+        fetchCars();
+
         };
+
+
+        // ==========================================
+        // 🟢 Delete (POST) - Ta bort vald bil
+        // ==========================================
+        const deleteCar = async (carId) => {
+            const response = await fetch(`${API_URL}/${carId}`, {
+                method: 'DELETE'
+            });
+            const data = await response.json();
+
+            console.log("Statuskod:", response.status);
+            console.log("Svar från server:", data);
+
+            fetchCars();
+        };
+
+
 
 
 
