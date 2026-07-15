@@ -107,7 +107,7 @@
                 const cars = await response.json();
                 
                 // Töm listan innan vi ritar ut på nytt
-                carList.innerHTML = "";
+                carList.replaceChildren();
 
                 if (cars.length === 0) {
                     carList.innerHTML = "<p>Det finns inga bilar i databasen.</p>";
