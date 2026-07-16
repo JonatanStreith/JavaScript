@@ -951,11 +951,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonat\\Downloads\\Frontend\\JavaScript\\Exercises\\carapi\\CarApi.csproj",
+      "projectUniqueName": "C:\\Users\\jonat\\Downloads\\Frontend\\JavaScript\\Exercises\\CarApi\\CarApi.csproj",
       "projectName": "CarApi",
-      "projectPath": "C:\\Users\\jonat\\Downloads\\Frontend\\JavaScript\\Exercises\\carapi\\CarApi.csproj",
+      "projectPath": "C:\\Users\\jonat\\Downloads\\Frontend\\JavaScript\\Exercises\\CarApi\\CarApi.csproj",
       "packagesPath": "C:\\Users\\jonat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonat\\Downloads\\Frontend\\JavaScript\\Exercises\\carapi\\obj\\",
+      "outputPath": "C:\\Users\\jonat\\Downloads\\Frontend\\JavaScript\\Exercises\\CarApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -71,11 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
                             <span style="font-size: 0.9rem; color: #777;">Färg: ${car.color}</span>
                         </div>
                         <div class="btn-group">
-                            <button class="outline" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="prepareEdit(${JSON.stringify(car).replace(/"/g, '&quot;')})">Redigera</button>
-                            <button class="outline contrast" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="deleteCar(${car.id})">Ta bort</button>
+                            <button class="outline" id="repl-btn${car.id}" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Redigera</button>
+                            <button class="outline contrast" id="del-btn${car.id}" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Ta bort</button>
                         </div>
                     `;
                     carList.appendChild(card);
+
+                    let deleteBtn: HTMLButtonElement = document.querySelector("#del-btn"+car.id) as HTMLButtonElement;
+                    deleteBtn.addEventListener('click', () => deleteCar(car.id));
+
+                    let replaceBtn = document.querySelector("#repl-btn"+car.id) as HTMLButtonElement;
+                    replaceBtn.addEventListener('click', () => replaceCar(car));
+
                 });
 
             } catch (error) {
@@ -134,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // ==========================================
         // 🟢 Update (PUT) - Uppdatera vald bil
         // ==========================================
-        const prepareEdit = async (car: { id: any; }) => {
+        const replaceCar = async (car: { id: any; }) => {
 
             console.log(car.id);
 
@@ -156,7 +163,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
             fetchCars();
         };
-
-        // Event listener för ladda-knappen
-
-
